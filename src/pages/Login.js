@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import axios from "axios";
+import {
+    loginUser,
+} from '../features/counter/counterSlice';
+import { useSelector, useDispatch } from 'react-redux';
 
 function Login() {
-
+    const dispatch = useDispatch();
     const [loginForm, setLoginFrom] = useState({
         username: '',
         password: ''
@@ -17,9 +21,8 @@ function Login() {
             loginForm
         )
             .then((response) => {
-                console.log(response.data.status);
                 if (response.data.status === 1) {
-
+                    dispatch(loginUser(response.data))
                 } else {
                     setError(true)
                 }
