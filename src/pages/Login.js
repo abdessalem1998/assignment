@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from "axios";
 
 function Login() {
 
@@ -9,7 +10,16 @@ function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(loginForm)
+        axios.post('https://otif-server-dot-otif-mx.uc.r.appspot.com/access/signin',
+            {
+                username: 'gyf',
+                password: '123456789'
+            })
+            .then((response) => {
+                console.log(response);
+            }, (error) => {
+                console.log(error);
+            });
     }
 
     return (
