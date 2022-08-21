@@ -23,6 +23,8 @@ function Login() {
             .then((response) => {
                 if (response.data.status === 1) {
                     dispatch(loginUser(response.data))
+                    localStorage.setItem("isloggedIn", true);
+                    localStorage.setItem("userinfo", response.data);
                 } else {
                     setError(true)
                 }

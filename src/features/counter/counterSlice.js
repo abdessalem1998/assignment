@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  isloggedIn: false,
+  isloggedIn: localStorage.getItem("isloggedIn"),
   userinfo:''
 };
 
@@ -12,7 +12,6 @@ export const counterSlice = createSlice({
     loginUser: (state,action) => {
       state.userinfo = action.payload
       state.isloggedIn = true
-      console.log(state)
     }
   }
 });
