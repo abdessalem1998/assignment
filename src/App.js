@@ -8,17 +8,19 @@ import {
   BrowserRouter,
   Navigate,
 } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function App() {
+  const user = useSelector((state) => state);
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
           <Route
             path="*"
-            element={<Navigate to={true ? '/home' : "/"} />}
+            element={<Navigate to={user.user.isloggedIn ? '/home' : "/"} />}
           />
-          {true ?
+          {user.user.isloggedIn ?
             <>
               <Route path="/home" element={<Home />} />
             </>
