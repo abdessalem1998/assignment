@@ -3,6 +3,8 @@ import axios from "axios";
 
 function Home() {
     const [users, setUsers] = useState([])
+    const [find, setFind] = useState('')
+
     useEffect(() => {
         axios.get('https://otif-server-dot-otif-mx.uc.r.appspot.com/access')
             .then((response) => {
@@ -11,12 +13,18 @@ function Home() {
                 console.log(error);
             });
     }, []);
-    console.log(users)
+
     return (
         <div>
             <label className="my-3">Home page</label>
             <div className="mb-5 container">
-                <input type="text" placeholder='search ...' className="form-control mx-auto" />
+                <input 
+                    type="text" 
+                    placeholder='search ...' 
+                    value={find}
+                    onChange={(e) => { setFind( e.target.value ) }} 
+                    className="form-control mx-auto" 
+                    />
             </div>
             <div className='row'>
                 {
