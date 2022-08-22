@@ -34,7 +34,7 @@ function Login() {
     }
 
     return (
-        <div className="d-flex justify-content-center align-items-center">
+        <div className="App d-flex justify-content-center align-items-center">
             <form className='border p-3' onSubmit={handleSubmit}>
                 <div className="m-3">
                     <label className="form-label">Email address</label>
