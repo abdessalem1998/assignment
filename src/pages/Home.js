@@ -29,8 +29,8 @@ function Home() {
             <div className='row'>
                 {
                     find === ''
-                        ? <h3>search ....</h3>
-                        : users.map((user, index) => (
+                        ? <h3>type Something to search</h3>
+                        : users.filter((user) => user.username.includes(find)).map((user, index) => (
                             <div className=" col-sm-3 p-2 my-2" key={index}>
                                 <ul className="card list-group list-group-flush">
                                     <li className="list-group-item"><p><b>username</b></p><p>{user.username}</p></li>
