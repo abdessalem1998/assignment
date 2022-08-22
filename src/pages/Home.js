@@ -30,7 +30,7 @@ function Home() {
                 {
                     find === ''
                         ? <h3>type Something to search</h3>
-                        : users.filter((user) => user.username.includes(find)).map((user, index) => (
+                        : users.filter((user) => user.username.toLowerCase().includes(find.toLowerCase())).map((user, index) => (
                             <div className=" col-sm-3 p-2 my-2" key={index}>
                                 <ul className="card list-group list-group-flush">
                                     <li className="list-group-item"><p><b>username</b></p><p>{user.username}</p></li>
